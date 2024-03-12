@@ -1,0 +1,33 @@
+﻿1. Creare baza de date - BooksDatabase.mdf
+2. Creare tabela carti
+    CREATE TABLE [dbo].[carti] (
+        [Id_carte] INT        IDENTITY (1, 1) NOT NULL,
+        [titlu]    NCHAR (50) NOT NULL,
+        [autor]    NCHAR (50) NOT NULL,
+        [gen]      NCHAR (50) NOT NULL,
+        PRIMARY KEY CLUSTERED ([Id_carte] ASC),
+        UNIQUE NONCLUSTERED ([titlu] ASC)
+    );
+3.App.config 
+    - adaugare ConnectionString
+    - adaugare cale catre fisier carti.txt
+
+4. Folder DataAccess
+    - clasa SQLDataAccess 
+            - definire metode 
+                    - GetConnectionStrings
+                    - GetCartiPathStrings
+   - clasa DatabaseHelper
+        - definire metode
+                    - Initialisation
+                    - InserareCarti
+                    - GetAllBooksFromDatabase
+
+5. Definire event handler Load pentru Form1 care va incarca            
+            DatabaseHelper.Initialisation();
+
+6. Definire DataGridView booksDataGridView in care sunt afisate cartile din DataSet
+
+
+
+          
